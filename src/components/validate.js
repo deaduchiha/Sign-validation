@@ -1,7 +1,7 @@
 export const validate = (data) => {
   const errors = {};
   if (!data.username.trim()) errors.username = "username required";
-  delete errors.username;
+  else delete errors.username;
 
   if (!data.email) errors.email = "email required";
   else if (
@@ -22,7 +22,7 @@ export const validate = (data) => {
     errors.confirmPassword = "password do not match";
   else delete errors.confirmPassword;
 
-  if (!data.isAccepted) delete errors.isAccepted;
+  if (data.isAccepted) delete errors.isAccepted;
   else errors.isAccepted = "Accept our regulations";
 
   return errors;
