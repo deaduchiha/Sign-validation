@@ -79,6 +79,9 @@
   height: 20px !important;
   text-align: center;
 }
+.checkBoxContainer label {
+  flex-wrap: 0;
+}
 .formField:nth-child(6) label {
   color: #1a73e8;
 }

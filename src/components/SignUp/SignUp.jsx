@@ -126,23 +126,29 @@ const SignUp = () => {
           />
         </div>
 
-        <div className={`${styles.checkBoxContainer} ${styles.formField}`}>
+        <div className={`${styles.formField} ${styles.checkBoxContainer} `}>
           <FormField
+            style={
+              errors.isAccepted && touched.isAccepted
+                ? styles.uncompleted
+                : styles.formInput
+            }
             type="checkbox"
             label="I accept terms of privacy and policy"
             name="isAccepted"
             value={data.isAccepted}
             change={changeHandler}
             focus={focusHandler}
-            errorss={
-              errors.isAccepted &&
-              touched.isAccepted && <span>{errors.isAccepted}</span>
-            }
           />
+        </div>
+        <div className={styles.formField}>
+          {errors.isAccepted && touched.isAccepted && (
+            <span>{errors.isAccepted}</span>
+          )}
         </div>
 
         <div className={styles.formButtons}>
-          <a href="#">Login</a>
+          <a href="http://google.com">Login</a>
           <button type="submit">Sign up</button>
         </div>
       </form>
