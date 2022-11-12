@@ -12,8 +12,10 @@ import "react-toastify/dist/ReactToastify.css";
 // styles
 import styles from "../../styles/Sign.module.css";
 import { Link } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 
 const SignUp = () => {
+  useTitle("Sign up");
   const [data, setData] = useState({
     username: "",
     email: "",

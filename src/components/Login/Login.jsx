@@ -5,6 +5,7 @@ import FormField from "../SignUp/FormField";
 // function
 import { validate } from "../validate";
 import { notify } from "../toast";
+import useTitle from "../../hooks/useTitle";
 
 // toastify
 import { ToastContainer } from "react-toastify";
@@ -14,6 +15,7 @@ import "react-toastify/dist/ReactToastify.css";
 import styles from "../../styles/Sign.module.css";
 
 const Login = () => {
+  useTitle("Login");
   const [data, setData] = useState({
     email: "",
     password: "",
