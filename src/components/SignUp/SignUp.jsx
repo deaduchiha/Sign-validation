@@ -11,11 +11,15 @@ import "react-toastify/dist/ReactToastify.css";
 
 // styles
 import styles from "../../styles/Sign.module.css";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const [data, setData] = useState({
+    username: "",
     email: "",
     password: "",
+    confirmPassword: "",
+    isAccepted: false,
   });
 
   const [errors, setErrors] = useState({});
@@ -145,7 +149,7 @@ const SignUp = () => {
         </div>
 
         <div className={styles.formButtons}>
-          <a href="http://google.com">Login</a>
+          <Link to="/login">Login</Link>
           <button type="submit">Sign up</button>
         </div>
       </form>

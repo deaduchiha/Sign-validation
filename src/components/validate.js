@@ -16,7 +16,7 @@ export const validate = (data, type) => {
   else delete errors.password;
 
   if (type === "signup") {
-    if (!data.username.trim()) errors.username = "username required";
+    if (!data.username?.trim()) errors.username = "username required";
     else delete errors.username;
 
     if (!data.confirmPassword) errors.confirmPassword = "Confirm the password";

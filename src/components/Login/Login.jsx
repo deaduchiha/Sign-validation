@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import FormField from "../SignUp/FormField";
 
 // function
@@ -14,11 +15,8 @@ import styles from "../../styles/Sign.module.css";
 
 const Login = () => {
   const [data, setData] = useState({
-    username: "",
     email: "",
     password: "",
-    confirmPassword: "",
-    isAccepted: false,
   });
 
   const [errors, setErrors] = useState({});
@@ -86,7 +84,7 @@ const Login = () => {
         </div>
 
         <div className={styles.formButtons}>
-          <a href="http://google.com">Sign up</a>
+          <Link to="/signUp">SignUp</Link>
           <button type="submit">Login</button>
         </div>
       </form>
