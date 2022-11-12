@@ -1,7 +1,7 @@
 import React from "react";
 
 // components
-import SignUp from "./components/SignUp";
+import SignUp from "./components/SignUp/SignUp";
 
 const App = () => {
   return (
