@@ -1,6 +1,6 @@
 # Sign validation
 
-signIn and signUp validation with react js
+Sign In and Sign Up validation with react js
 
 # dependencies
 
