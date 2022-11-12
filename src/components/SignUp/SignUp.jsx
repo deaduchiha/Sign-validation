@@ -10,22 +10,19 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 // styles
-import styles from "./SignUp.module.css";
+import styles from "../../styles/Sign.module.css";
 
 const SignUp = () => {
   const [data, setData] = useState({
-    username: "",
     email: "",
     password: "",
-    confirmPassword: "",
-    isAccepted: false,
   });
 
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
 
   useEffect(() => {
-    setErrors(validate(data));
+    setErrors(validate(data, "signup"));
   }, [data, touched]);
 
   const changeHandler = (event) => {
@@ -42,7 +39,7 @@ const SignUp = () => {
     notify();
     event.preventDefault();
     if (!Object.keys(errors).length)
-      notify("You signed in succusfully", "success");
+      notify("You signed up succusfully", "success");
     else notify("Invalid data", "error");
   };
 

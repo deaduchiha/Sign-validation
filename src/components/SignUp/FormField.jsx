@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "./SignUp.module.css";
+import styles from "../../styles/Sign.module.css";
 
 const FormField = (props) => {
   return (
