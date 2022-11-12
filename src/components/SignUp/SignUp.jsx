@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 
+// function
 import { validate } from "../validate";
+import { notify } from "../toast";
+
+// toastify
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignUp = () => {
   const [data, setData] = useState({
@@ -29,16 +35,13 @@ const SignUp = () => {
   };
 
   const submitHandler = (event) => {
+    notify();
     event.preventDefault();
-    if (!Object.keys(errors).length) console.log(data);
-    setTouched({
-      name: true,
-      email: true,
-      password: true,
-      confirmPassword: true,
-      isAccepted: true,
-    });
+    if (!Object.keys(errors).length)
+      notify("You signed in succusfully", "success");
+    else notify("Invalid data", "error");
   };
+
   return (
     <>
       <form onSubmit={submitHandler}>
@@ -111,6 +114,7 @@ const SignUp = () => {
           <button type="submit">Sign up</button>
         </div>
       </form>
+      <ToastContainer />
     </>
   );
 };
