@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import FormField from "./FormField";
 
 // function
 import { validate } from "../validate";
@@ -7,6 +8,9 @@ import { notify } from "../toast";
 // toastify
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+// styles
+import styles from "./SignUp.module.css";
 
 const SignUp = () => {
   const [data, setData] = useState({
@@ -43,79 +47,74 @@ const SignUp = () => {
   };
 
   return (
-    <>
-      <form onSubmit={submitHandler}>
-        <h2>SignUp</h2>
-        <div>
-          <label>Username</label>
-          <input
-            type="text"
-            name="username"
-            value={data.username}
-            onChange={changeHandler}
-            onFocus={focusHandler}
-          />
-          {errors.username && touched.username && (
-            <span>{errors.username}</span>
-          )}
-        </div>
-        <div>
-          <label>Email</label>
-          <input
-            type="text"
-            name="email"
-            value={data.email}
-            onChange={changeHandler}
-            onFocus={focusHandler}
-          />
-          {errors.email && touched.email && <span>{errors.email}</span>}
-        </div>
-        <div>
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            value={data.password}
-            onChange={changeHandler}
-            onFocus={focusHandler}
-          />
-          {errors.password && touched.password && (
-            <span>{errors.password}</span>
-          )}
-        </div>
-        <div>
-          <label>Confirm Password</label>
-          <input
-            type="password"
-            name="confirmPassword"
-            value={data.confirmPassword}
-            onChange={changeHandler}
-            onFocus={focusHandler}
-          />
-          {errors.confirmPassword && touched.confirmPassword && (
-            <span>{errors.confirmPassword}</span>
-          )}
-        </div>
-        <div>
-          <label>I accept terms of privacy and policy</label>
-          <input
-            type="checkbox"
-            name="isAccepted"
-            value={data.isAccepted}
-            onChange={changeHandler}
-            onFocus={focusHandler}
-          />
-          {errors.isAccepted && touched.isAccepted && (
-            <span>{errors.isAccepted}</span>
-          )}
-        </div>
+    <div className={styles.container}>
+      <form className={styles.formContainer} onSubmit={submitHandler}>
+        <h2 className={styles.header}>SignUp</h2>
+        <FormField
+          type="text"
+          label="Username"
+          name="username"
+          value={data.username}
+          change={changeHandler}
+          focus={focusHandler}
+          errorss={
+            errors.username &&
+            touched.username && <span>{errors.username}</span>
+          }
+        />
+        <FormField
+          type="text"
+          label="Email"
+          name="email"
+          value={data.email}
+          change={changeHandler}
+          focus={focusHandler}
+          errorss={errors.email && touched.email && <span>{errors.email}</span>}
+        />
+        <FormField
+          type="password"
+          label="Password"
+          name="password"
+          value={data.password}
+          change={changeHandler}
+          focus={focusHandler}
+          errorss={
+            errors.password &&
+            touched.password && <span>{errors.password}</span>
+          }
+        />
+        <FormField
+          type="password"
+          label="Confirm Password"
+          name="confirmPassword"
+          value={data.confirmPassword}
+          change={changeHandler}
+          focus={focusHandler}
+          errorss={
+            errors.confirmPassword &&
+            touched.confirmPassword && <span>{errors.confirmPassword}</span>
+          }
+        />
+        <FormField
+          type="checkbox"
+          label="I accept terms of privacy and policy"
+          name="isAccepted"
+          value={data.isAccepted}
+          change={changeHandler}
+          focus={focusHandler}
+          errorss={
+            errors.isAccepted &&
+            touched.isAccepted && <span>{errors.isAccepted}</span>
+          }
+        />
+
         <div>
           <a href="#">Login</a>
           <button type="submit">Sign up</button>
         </div>
       </form>
       <ToastContainer />
-    </>
+    </div>
   );
 };
 

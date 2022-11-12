@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  justify-content: center;
+  background: #f9f9f9;
+  min-height: 100vh;
+  align-items: center;
+}
+.formContainer {
+  border: 1px solid silver;
+  width: fit-content;
+  padding: 50px;
+  margin: 50px;
+  border-radius: 10px;
+  height: fit-content;
+  background-color: #fff;
+}
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 1.8rem;
+  color: #1a73e8;
+}
