@@ -50,65 +50,98 @@ const SignUp = () => {
     <div className={styles.container}>
       <form className={styles.formContainer} onSubmit={submitHandler}>
         <h2 className={styles.header}>SignUp</h2>
-        <FormField
-          type="text"
-          label="Username"
-          name="username"
-          value={data.username}
-          change={changeHandler}
-          focus={focusHandler}
-          errorss={
-            errors.username &&
-            touched.username && <span>{errors.username}</span>
-          }
-        />
-        <FormField
-          type="text"
-          label="Email"
-          name="email"
-          value={data.email}
-          change={changeHandler}
-          focus={focusHandler}
-          errorss={errors.email && touched.email && <span>{errors.email}</span>}
-        />
-        <FormField
-          type="password"
-          label="Password"
-          name="password"
-          value={data.password}
-          change={changeHandler}
-          focus={focusHandler}
-          errorss={
-            errors.password &&
-            touched.password && <span>{errors.password}</span>
-          }
-        />
-        <FormField
-          type="password"
-          label="Confirm Password"
-          name="confirmPassword"
-          value={data.confirmPassword}
-          change={changeHandler}
-          focus={focusHandler}
-          errorss={
-            errors.confirmPassword &&
-            touched.confirmPassword && <span>{errors.confirmPassword}</span>
-          }
-        />
-        <FormField
-          type="checkbox"
-          label="I accept terms of privacy and policy"
-          name="isAccepted"
-          value={data.isAccepted}
-          change={changeHandler}
-          focus={focusHandler}
-          errorss={
-            errors.isAccepted &&
-            touched.isAccepted && <span>{errors.isAccepted}</span>
-          }
-        />
+        <div className={styles.formField}>
+          <FormField
+            style={
+              errors.username && touched.username
+                ? styles.uncompleted
+                : styles.formInput
+            }
+            type="text"
+            label="Username"
+            name="username"
+            value={data.username}
+            change={changeHandler}
+            focus={focusHandler}
+            errorss={
+              errors.username &&
+              touched.username && <span>{errors.username}</span>
+            }
+          />
+        </div>
+        <div className={styles.formField}>
+          <FormField
+            style={
+              errors.email && touched.email
+                ? styles.uncompleted
+                : styles.formInput
+            }
+            type="text"
+            label="Email"
+            name="email"
+            value={data.email}
+            change={changeHandler}
+            focus={focusHandler}
+            errorss={
+              errors.email && touched.email && <span>{errors.email}</span>
+            }
+          />
+        </div>
+        <div className={styles.formField}>
+          <FormField
+            style={
+              errors.password && touched.password
+                ? styles.uncompleted
+                : styles.formInput
+            }
+            type="password"
+            label="Password"
+            name="password"
+            value={data.password}
+            change={changeHandler}
+            focus={focusHandler}
+            errorss={
+              errors.password &&
+              touched.password && <span>{errors.password}</span>
+            }
+          />
+        </div>
+        <div className={styles.formField}>
+          <FormField
+            style={
+              errors.confirmPassword && touched.confirmPassword
+                ? styles.uncompleted
+                : styles.formInput
+            }
+            type="password"
+            label="Confirm Password"
+            name="confirmPassword"
+            value={data.confirmPassword}
+            change={changeHandler}
+            focus={focusHandler}
+            errorss={
+              errors.confirmPassword &&
+              touched.confirmPassword && <span>{errors.confirmPassword}</span>
+            }
+          />
+        </div>
 
-        <div>
+        <div className={`${styles.checkBoxContainer} ${styles.formField}`}>
+          <FormField
+            type="checkbox"
+            label="I accept terms of privacy and policy"
+            name="isAccepted"
+            value={data.isAccepted}
+            change={changeHandler}
+            focus={focusHandler}
+            errorss={
+              errors.isAccepted &&
+              touched.isAccepted && <span>{errors.isAccepted}</span>
+            }
+          />
+        </div>
+
+        <div className={styles.formButtons}>
           <a href="#">Login</a>
           <button type="submit">Sign up</button>
         </div>

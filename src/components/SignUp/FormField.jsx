@@ -1,10 +1,13 @@
 import React from "react";
 
+import styles from "./SignUp.module.css";
+
 const FormField = (props) => {
   return (
-    <div>
+    <>
       <label>{props.label}</label>
       <input
+        className={props.style}
         type={props.type}
         name={props.name}
         value={props.value}
@@ -12,7 +15,7 @@ const FormField = (props) => {
         onFocus={props.focus}
       />
       {props.errorss}
-    </div>
+    </>
   );
 };
 
